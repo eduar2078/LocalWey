@@ -29,7 +29,7 @@
         <span id="header-title">Localwey</span>
       </div>
       <nav class="small">
-        <a href="#" class="text-white text-decoration-none" id="breadcrumb-home">Inicio</a>
+        <a href="../content/Home.php" class="text-white text-decoration-none" id="breadcrumb-home">Inicio</a>
         <span class="mx-1">/</span>
         <span id="breadcrumb-current">Restaurantes en Bolívar</span>
       </nav>
