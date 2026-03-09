@@ -31,7 +31,7 @@ btnEnter.addEventListener('click', (e) => {
 
       setTimeout(() => {
         preloader.classList.add('fade-out');
-        window.location.href = 'content/Home.php';
+        window.location.href = 'App/Home';
       }, 310);
     }
   },100);

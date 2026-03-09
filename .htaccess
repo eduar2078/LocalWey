@@ -1,0 +1,31 @@
+# Desactivar listado de directorios
+Options -Indexes
+
+# Proteger archivos sensibles
+<FilesMatch "(^\.|composer\.(json|lock)|package\.json|yarn\.lock|\.env)">
+    Require all denied
+</FilesMatch>
+
+# Bloquear acceso a config.php
+<Files "config.php">
+    Require all denied
+</Files>
+
+# Headers de seguridad
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Bloquear métodos peligrosos
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK|DEBUG) [NC]
+RewriteRule .* - [F]
+
+# Omitir archivos y carpetas existentes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Tu router (sin modificar)
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)(?:/([a-zA-Z0-9_-]+))?$ index.php?controller=$1&action=$2&id=$3 [QSA,L]
