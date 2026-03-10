@@ -1,6 +1,10 @@
 <?php
 # Url base de la ruta del proyecto
 define("PATH_BASE", "http://localhost/PHP/InfoRed/");
+# Variables para accesos a archivos locales
+define("PATH_CSS", PATH_BASE . "app/views/resources/css/");
+define("PATH_JS", PATH_BASE . "app/views/resources/js/");
+define("PATH_IMG", PATH_BASE . "app/views/resources/img/");
 # Información sobre conexión base de datos
 define("HOST_DATABASE", "localhost");
 define("NAME_DATABASE", "localwey");

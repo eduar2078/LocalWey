@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers;
+namespace app\controllers;
 
 use App\Models\BusinessModel;
 

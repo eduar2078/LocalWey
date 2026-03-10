@@ -1,7 +1,7 @@
 <?php
-namespace App;
+namespace app;
 
-use App\Controllers\AppController;
+use app\controllers\AppController;
 
 class App{
     public function run()
@@ -10,7 +10,7 @@ class App{
             $controllerName = ucfirst($_GET["controller"]) . "Controller";
             $action = $_GET["action"];
 
-            $controllerClass = "App\\Controllers\\" . $controllerName;
+            $controllerClass = "app\\controllers\\" . $controllerName;
 
             if(class_exists($controllerClass)){
                 $controller = new $controllerClass();

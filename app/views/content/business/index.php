@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localwey - Restaurantes en Bolívar</title>
+    <title>Localwey - <?php echo ucwords(strtolower($typeBusiness[0]["f102_tipo_negocio"]));?> en Ciudad Bolívar</title>
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- CSS propio -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style.css">
 </head>
 
 <body class="bg-light">
@@ -31,7 +31,7 @@
             <nav class="small">
                 <a href="<?php echo PATH_BASE; ?>App/Home" class="text-white text-decoration-none" id="breadcrumb-home">Inicio</a>
                 <span class="mx-1">/</span>
-                <span id="breadcrumb-current">Restaurantes en Bolívar</span>
+                <span id="breadcrumb-current"><?php echo ucwords(strtolower($typeBusiness[0]["f102_tipo_negocio"]));?> en Ciudad Bolívar</span>
             </nav>
         </div>
     </header>
@@ -115,10 +115,10 @@
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
                         <h4 class="fw-bold text-primary mb-1" id="list-title">
-                            Restaurantes en Bolívar
+                            <?php echo ucwords(strtolower($typeBusiness[0]["f102_tipo_negocio"]));?> en Ciudad Bolívar
                         </h4>
                         <p class="text-muted small mb-0" id="list-description">
-                            Cards de ejemplo (backend renderiza el resto)
+                            <!-- Cards de ejemplo (backend renderiza el resto) -->
                         </p>
                     </div>
                 </div>
@@ -132,19 +132,19 @@
                             <div class="col-md-3">
                                 <div class="p-2">
                                     <img
-                                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
+                                        src="<?php echo PATH_IMG;?>business/<?php echo $value["f200_imagen_portada"];?>"
                                         class="img-fluid rounded border"
-                                        alt="Imagen restaurante"
+                                        alt="<?php echo $value["f200_nombre"]; ?>"
                                         id="entity-image">
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="card-body py-2">
                                     <h6 class="fw-semibold mb-1" id="entity-name"><?php echo $value["f200_nombre"]; ?></h6>
-                                    <div class="small text-muted mb-1" id="entity-meta">★★★★☆ · 4.2 · Restaurante</div>
+                                    <div class="small text-muted mb-1" id="entity-meta">★★★★☆ · 4.2 · <?php echo substr(ucwords(strtolower($value["f102_tipo_negocio"])), 0, strlen($value["f102_tipo_negocio"]) - 1); ?></div>
                                     <div class="small text-muted mb-2">
                                         <i class="fas fa-location-dot me-1"></i>
-                                        <span id="entity-address"><?php echo $value["f200_ubicacion"]; ?></span>
+                                        <span id="entity-address"><?php echo $value["f200_direccion"]; ?></span>
                                     </div>
                                     <button
                                         class="btn btn-primary btn-sm rounded-pill px-4 fw-semibold d-inline-flex align-items-center gap-2"

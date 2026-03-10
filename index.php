@@ -2,5 +2,5 @@
 require_once "config.php";
 require_once "autoload.php";
 
-$app = new \App\App();
+$app = new \app\App();
 $app->run();

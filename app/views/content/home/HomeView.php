@@ -15,7 +15,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php echo PATH_BASE; ?>app/views/resources/css/style.css">
+    <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
     <!-- SEARCH -->
     <section class="hero-bg py-4">
         <div class="container text-white">
-            <p class="fw-semibold mb-2">Estás en: <strong>Bolívar</strong></p>
+            <p class="fw-semibold mb-2">Estás en: <strong>Ciudad Bolívar</strong></p>
             <div class="input-group input-group-lg">
                 <input type="text" class="form-control" placeholder="¿Qué buscas hoy?">
                 <button class="btn btn-success-local px-4">Buscar</button>
@@ -50,7 +50,7 @@
                 <div class="col-6 col-md">
                     <a href="<?php echo PATH_BASE; ?>Business/ShowAll/<?php echo $value["f102_id"]; ?>" class="text-decoration-none text-dark">
                         <div class="bg-white p-4 rounded shadow-sm h-100 category-card">
-                            <i class="bi bi-shop fs-1 text-primary-local"></i>
+                            <i class="<?php echo $value["f102_icono"]; ?> fs-1 text-primary-local"></i>
                             <p class="fw-semibold mt-2 mb-0"><?php echo $value["f102_tipo_negocio"]; ?></p>
                         </div>
                     </a>
@@ -196,6 +196,6 @@
     }
 </style>
 
-<script src="<?php echo PATH_BASE; ?>app/views/resources/js/index.js"></script>
+<script src="<?php echo PATH_JS; ?>index.js"></script>
 
 </html>

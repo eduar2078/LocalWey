@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="<?php echo PATH_BASE; ?>app/views/resources/css/style.css">
+  <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style.css">
   
 
   <!-- Font Awesome -->
@@ -37,6 +37,6 @@
   </div>
 
   <!-- JS -->
-  <script src="<?php echo PATH_BASE; ?>app/views/resources/js/preloader.js"></script>
+  <script src="<?php echo PATH_JS; ?>preloader.js"></script>
 </body>
 </html>

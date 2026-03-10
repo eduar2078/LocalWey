@@ -1,5 +1,5 @@
 <?php
-namespace Auth;
+namespace app\controllers;
 
 class AuthController{
     public function index(){
