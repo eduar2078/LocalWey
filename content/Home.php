@@ -171,11 +171,10 @@
     </div>
   </section>
 
-  <a href="../admin/content/HomeAdmin.php" class="text-decoration-none text-dark">Admin</a>
+  <a href="../admin/content/LoginAdmin.php" class="text-decoration-none text-dark">Admin</a>
 
-  <!-- FOOTER -->
   <footer class="bg-primary-local text-white text-center py-4">
-    <p class="mb-2">© 2024 Localwey - Negocios que crecen contigo</p>
+    <p class="mb-2">© 2026 Localwey - Negocios que crecen contigo</p>
     <div class="d-flex justify-content-center gap-3 fs-5">
       <i class="bi bi-facebook"></i>
       <i class="bi bi-instagram"></i>

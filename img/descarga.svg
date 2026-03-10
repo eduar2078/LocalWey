@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+
+  <!-- Pin -->
+  <path d="M32 4C20 4 12 13 12 24c0 15 20 36 20 36s20-21 20-36C52 13 44 4 32 4z" fill="#1e5ed8"></path>
+
+  <!-- Letras LW -->
+  <text x="32" y="28" text-anchor="middle" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="white">
+        LW
+  </text>
+
+</svg>
