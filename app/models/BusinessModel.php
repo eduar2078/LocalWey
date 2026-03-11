@@ -28,6 +28,20 @@ class BusinessModel{
         INNER JOIN t102_mm_tipo_negocio ON f200_id_tipo_negocio = f102_id
         WHERE f200_id_tipo_negocio = $typeBusiness AND f200_id_estado = '$status'";
         $stmt = $this->db->query($sql);
-        return $stmt->fetchAll();
+        return $stmt->fetchall();
+    }
+
+    public function GetxId(int $id){
+        $sql = "SELECT * FROM t200_mv_negocio 
+        INNER JOIN t102_mm_tipo_negocio ON f200_id_tipo_negocio = f102_id
+        WHERE f200_id = $id";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchall();
+    }
+
+    public function GetGalleryxIdBusiness(int $id){
+        $sql = "SELECT * FROM t201_mv_galeria WHERE f201_id_negocio = $id";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchall();
     }
 }

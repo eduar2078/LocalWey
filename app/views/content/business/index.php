@@ -52,7 +52,7 @@
                     <div class="card-body">
 
                         <!-- Categoría -->
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <h6 class="fw-bold mb-2">Categoría</h6>
                             <div id="filter-categories">
                                 <div class="form-check mb-1">
@@ -68,7 +68,7 @@
                                     <label class="form-check-label">Bares</label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Valoración -->
                         <div class="mb-4">
@@ -90,7 +90,7 @@
                         </div>
 
                         <!-- Ubicación -->
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <h6 class="fw-bold mb-2">Ubicación</h6>
                             <select class="form-select" id="filter-location">
                                 <option selected>Bolívar</option>
@@ -98,7 +98,7 @@
                                 <option>San Gregorio</option>
                                 <option>Ventorrillo</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <button class="btn btn-primary w-100 fw-semibold" id="apply-filters">
                             <i class="fas fa-check me-1"></i>
@@ -148,9 +148,7 @@
                                     </div>
                                     <button
                                         class="btn btn-primary btn-sm rounded-pill px-4 fw-semibold d-inline-flex align-items-center gap-2"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#entityModal"
-                                        id="entity-view-btn">
+                                        id="entity-view-btn" onclick="getInfoxBusiness(<?php echo $value['f200_id'];?>)">
                                         <i class="fas fa-eye"></i>
                                         Ver negocio
                                     </button>
@@ -161,73 +159,6 @@
                 <?php
                 }
                 ?>
-
-                <!-- ===== CARD 2 ===== -->
-                <!-- <div class="card mb-3 border-0 entity-card">
-                    <div class="row g-3 align-items-start">
-                        <div class="col-md-3">
-                            <div class="p-2">
-                                <img
-                                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
-                                    class="img-fluid rounded border"
-                                    alt="Imagen restaurante"
-                                    id="entity-image">
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="card-body py-2">
-                                <h6 class="fw-semibold mb-1" id="entity-name">Restaurante El Encanto</h6>
-                                <div class="small text-muted mb-1" id="entity-meta">★★★★☆ · 4.5 · Gourmet</div>
-                                <div class="small text-muted mb-2">
-                                    <i class="fas fa-location-dot me-1"></i>
-                                    <span id="entity-address">Bolívar, Avenida Central #456</span>
-                                </div>
-                                <button
-                                    class="btn btn-primary btn-sm rounded-pill px-4 fw-semibold d-inline-flex align-items-center gap-2"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#entityModal"
-                                    id="entity-view-btn">
-                                    <i class="fas fa-eye"></i>
-                                    Ver negocio
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- ===== CARD 3 ===== -->
-                <!-- <div class="card mb-3 border-0 entity-card">
-                    <div class="row g-3 align-items-start">
-                        <div class="col-md-3">
-                            <div class="p-2">
-                                <img
-                                    src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1"
-                                    class="img-fluid rounded border"
-                                    alt="Imagen restaurante"
-                                    id="entity-image">
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="card-body py-2">
-                                <h6 class="fw-semibold mb-1" id="entity-name">Juancito Parrilla</h6>
-                                <div class="small text-muted mb-1" id="entity-meta">★★★★☆ · 4.3 · Parrilla</div>
-                                <div class="small text-muted mb-2">
-                                    <i class="fas fa-location-dot me-1"></i>
-                                    <span id="entity-address">Bolívar, Zona Comercial #789</span>
-                                </div>
-                                <button
-                                    class="btn btn-primary btn-sm rounded-pill px-4 fw-semibold d-inline-flex align-items-center gap-2"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#entityModal"
-                                    id="entity-view-btn">
-                                    <i class="fas fa-eye"></i>
-                                    Ver negocio
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
             </section>
             <!-- ================= MODAL VER NEGOCIO ================= -->
             <div class="modal fade" id="entityModal" tabindex="-1" aria-hidden="true">
@@ -239,7 +170,7 @@
                         <div class="modal-header bg-primary text-white">
                             <h5 class="modal-title fw-bold" id="modal-entity-name">
                                 <i class="fas fa-store me-2"></i>
-                                Nombre del restaurante
+                                <span id="name-business-entity-modal"></span>
                             </h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                         </div>
@@ -263,18 +194,15 @@
                                     <div class="card shadow-sm mb-4">
                                         <div class="card-body">
                                             <div class="text-warning mb-1" id="modal-entity-meta">
-                                                ★★★★☆ · 4.2 · Restaurante
+                                                ★★★★☆ · 4.2 · <span id="span-entity-type-business"></span>
                                             </div>
                                             <div class="text-muted small mb-2">
                                                 <i class="fas fa-location-dot me-1"></i>
                                                 <span id="modal-entity-address">
-                                                    Bolívar, Calle Principal #123
+                                                    Ciudad Bolívar, <span id="span-entity-address"></span>
                                                 </span>
                                             </div>
-                                            <p class="mb-0 text-muted" id="modal-entity-description">
-                                                Descripción del negocio. Aquí el backend puede colocar
-                                                información general del restaurante, su estilo y propuesta.
-                                            </p>
+                                            <p class="mb-0 text-muted" id="modal-entity-description"></p>
                                         </div>
                                     </div>
 
@@ -323,8 +251,6 @@
                                             </h6>
                                             <div id="modal-entity-services">
                                                 <span class="badge bg-secondary me-1 mb-1">Domicilio</span>
-                                                <span class="badge bg-secondary me-1 mb-1">WiFi</span>
-                                                <span class="badge bg-secondary me-1 mb-1">Tarjeta</span>
                                             </div>
                                         </div>
                                     </div>
@@ -414,8 +340,13 @@
                 </div>
             </footer>
 
+            <script>
+                const PATH_BASE = "<?php echo PATH_BASE; ?>"
+                const PATH_IMG = "<?php echo PATH_IMG; ?>";
+            </script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+            <script src="<?php echo PATH_JS;?>jquery-4.0.0.min.js"></script>
+            <script src="<?php echo PATH_JS;?>business.js"></script>
 
         </div>
     </main>
