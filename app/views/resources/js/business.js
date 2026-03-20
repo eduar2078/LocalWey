@@ -15,6 +15,7 @@ function getInfoxBusiness(id){
         $("#span-entity-address").empty().append(response["Information"][0].f200_direccion);
         $("#modal-entity-description").empty().append(response["Information"][0].f200_descripcion);
 
+        $("#modal-entity-image").attr("src", `${PATH_IMG}business/${response["Information"][0].f200_imagen_principal}`);
         $("#modal-entity-gallery").empty();
         response["Gallery"].forEach(element => {
             $("#modal-entity-gallery").append(`<div class="col-4">
