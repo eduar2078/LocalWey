@@ -33,10 +33,8 @@
   <div class="bg-image">
     <h1>Cuna de Arrieros</h1>
 
-    <button class="btn-enter" id="btnEnter">VER CONTENIDO</button>
+    <a href="content/Home.php" class="btn-enter" id="btnEnter">VER CONTENIDO </a>
   </div>
 
-  <!-- JS -->
-  <script src="js/preloader.js"></script>
 </body>
 </html>

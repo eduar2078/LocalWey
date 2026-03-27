@@ -6,7 +6,14 @@
     <title>Login | Localwey Admin</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon"   type ="favicon.svg"  href="../../img/descarga.svg">
+   <!-- Favicon principal -->
+<link rel="icon" href="../../img/descarga.svg" type="image/svg+xml">
+
+<!-- Fallback para navegadores antiguos -->
+<link rel="icon" href="../../img/descarga.svg" sizes="32x32">
+
+<!-- Icono para iPhone / iPad -->
+<link rel="apple-touch-icon" href="../../img/descarga.svg">
 
 </head>
 

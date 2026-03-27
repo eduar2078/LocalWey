@@ -1,92 +1,114 @@
+/* =====================
+   RESET BÁSICO
+   ===================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* =====================
+   FUENTES
+   ===================== */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: #f5f7fa;
 }
 
-/* Colores Localwey */
-.bg-primary-local {
-  background-color: #1E6FD9 !important;
+h1, h2, h3, h4, h5, h6,
+.fw-bold, .fw-semibold {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.bg-primary-dark {
-  background-color: #154C9C;
+/* =====================
+   COLORES LOCALWEY
+   ===================== */
+:root { --lw-primary: #1E6FD9; }
+
+/* Redefinir variables de Bootstrap para que bg-primary, text-primary,
+   btn-primary, bg-opacity-*, etc. funcionen todos con el color del proyecto */
+:root {
+  --bs-primary:     #1E6FD9;
+  --bs-primary-rgb: 30, 111, 217;
 }
 
-.text-primary-local {
-  color: #1E6FD9 !important;
-}
+.bg-primary-local  { background-color: #1E6FD9 !important; }
+.bg-primary-dark   { background-color: #154C9C !important; }
+.text-primary-local{ color: #1E6FD9 !important; }
 
-.btn-success-local {
-  background-color: #2DBE60;
-  color: #fff;
-  border: none;
-}
+.btn-success-local           { background-color: #2DBE60; color: #fff; border: none; }
+.btn-success-local:hover     { background-color: #26a956; color: #fff; }
+.text-success-local          { color: #2DBE60; }
 
-.btn-success-local:hover {
-  background-color: #26a956;
-}
+/* =====================
+   NAVBAR
+   ===================== */
+.navbar { height: 60px; }
 
-.text-success-local {
-  color: #2DBE60;
-}
-
-/* Hero */
+/* =====================
+   HERO
+   ===================== */
 .hero-bg {
   min-height: 320px;
-  /* hace el hero más grande */
   display: flex;
   align-items: center;
-
   background:
-    linear-gradient(rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.55)),
-    url("../img/WhatsApp\ Image\ 2026-02-02\ at\ 8.36.01\ PM.jpeg ");
-
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../img/WhatsApp Image 2026-02-02 at 8.36.01 PM.jpeg");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Promo */
+/* =====================
+   CARDS
+   ===================== */
+.card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,.08);
+}
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* =====================
+   CATEGORY CARD
+   ===================== */
+.category-card { transition: all .2s ease; }
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+/* =====================
+   PROMO
+   ===================== */
 .promo-img {
   height: 220px;
   object-fit: cover;
 }
-
 .overlay-dark {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
 }
 
-/* Categories hover */
-.category-card {
-  transition: all 0.2s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
+/* =====================
+   FOOTER
+   ===================== */
+footer { font-family: 'Montserrat', sans-serif; }
 
 
+.object-fit-cover { object-fit: cover; }
+.text-warning     { letter-spacing: 1px; }
+.hidden           { display: none; }
+.fade-out         { opacity: 0; pointer-events: none; transition: opacity .6s ease; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Fondo principal */
+/* =====================
+   PANTALLA BIENVENIDA
+   ===================== */
 .bg-image {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("../img/ChatGPT\ Image\ 2\ feb\ 2026\,\ 08_23_07\ p.m..png");
-  /* 👉 cambia la imagen aquí */
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url("../img/ChatGPT Image 2 feb 2026, 08_23_07 p.m..png");
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -96,18 +118,8 @@ body {
   align-items: center;
   text-align: center;
   color: #fff;
-  position: relative;
 }
 
-h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 5rem;
-  margin-bottom: 25px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-  font-weight: 400;
-}
-
-/* Botón principal */
 .btn-enter {
   padding: 15px 45px;
   font-size: 1.2rem;
@@ -117,257 +129,77 @@ h1 {
   border-radius: 50px;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  transition: all .3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,.35);
   font-weight: 500;
   letter-spacing: 1px;
 }
-
 .btn-enter:hover {
   background-color: #8e7342;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 6px 20px rgba(0,0,0,.45);
 }
 
-
-/* Contenedor del preloader */
+/* =====================
+   PRELOADER
+   ===================== */
 #preloader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #0a2e4e 0%, #1a4a7a 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
-
-/* ===== PRELOADER ===== */
-/* ===============================
-   PRELOADER LIMPIO Y PROFESIONAL
-   =============================== */
-
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-
+  inset: 0;
   width: 100vw;
   height: 100vh;
-
   background-image: url('../img/paisaje.jpeg');
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 9999;
-  transition: opacity 0.6s ease;
+  transition: opacity .6s ease;
 }
+#preloader.hidden   { display: none !important; }
+#preloader.fade-out { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* Oculto por defecto */
-#preloader.hidden {
-  display: none !important;
-}
-
-/* TEXTO */
 .loading-text {
-  color: #f3ede9; /* blanco cálido */
+  color: #f3ede9;
   font-size: 12px;
   letter-spacing: 3px;
   margin-bottom: 22px;
   font-family: 'Montserrat', sans-serif;
-  opacity: 0.85;
+  opacity: .85;
 }
-
-/* CONTENEDOR DE BARRA */
 .progress-container {
-  width: 300px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 300px; height: 10px;
+  background: rgba(255,255,255,.2);
   border-radius: 10px;
   overflow: hidden;
 }
-
-/* ===============================
-   BARRA: TRANSICIÓN SUAVE
-   NARANJA → AZUL
-   =============================== */
 .progress-bar {
-  height: 100%;
-  width: 0%;
-
-  background: linear-gradient(
-    90deg,
-    #f3683a, /* naranja atardecer */
-    #f3683a,
-    #1E6FD9, /* azul Localwey */
-    #1E6FD9
-  );
-
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #f3683a, #f3683a, #1E6FD9, #1E6FD9);
   background-size: 200% 100%;
-  background-position: 0% 0%;
-
-  /* Animación MUY sutil */
   animation: colorShift 2.5s ease-in-out infinite;
-
-  box-shadow: 0 0 8px rgba(30, 111, 217, 0.4);
-  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(30,111,217,.4);
+  transition: width .3s ease;
 }
-
-/* PORCENTAJE */
 .percent {
   margin-top: 12px;
   font-size: 11px;
   color: #f3ede9;
-  opacity: 0.7;
-}
-
-
-/* Fade final */
-#preloader.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-/* ===============================
-   CONTROL VISIBILIDAD PRELOADER
-   =============================== */
-
-/* Ocultar preloader hasta que se presione el botón */
-.hidden {
-  display: none;
-}
-
-/* Cuando termina la animación */
-#preloader.fade-out {
-  opacity: 0;
-  visibility: hidden;
-}
-
-#preloader.hidden {
-  display: none !important;
+  opacity: .7;
 }
 
 /* =====================
-   FUENTES Y BRANDING
+   ANIMACIONES GLOBALES
    ===================== */
-body {
-  font-family: 'Open Sans', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6,
-.fw-bold, .fw-semibold {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* =====================
-   COLOR PRINCIPAL
-   ===================== */
-:root {
-  --lw-primary: #1a5fb4;
-}
-
-.bg-primary,
-.btn-primary {
-  background-color: var(--lw-primary) !important;
-  border-color: var(--lw-primary) !important;
-}
-
-.text-primary {
-  color: var(--lw-primary) !important;
-}
-
-/* =====================
-   HOVER SUAVE EN CARDS
-   (Bootstrap NO trae esto)
-   ===================== */
-.card {
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, .08);
-}
-
-/* =====================
-   IMÁGENES FULL COVER
-   Bootstrap no garantiza esto
-   ===================== */
-.object-fit-cover {
-  object-fit: cover;
-}
-
-/* =====================
-   ESTRELLAS
-   ===================== */
-.text-warning {
-  letter-spacing: 1px;
-}
-
-/* =====================
-   FOOTER AJUSTE VISUAL
-   ===================== */
-footer {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Ajustes que Bootstrap no cubre */
-.sidebar-offset {
-  top: 100px;
-}
-
-.card-img-top {
-  height: 180px;
-  object-fit: cover;
-}
-
-
-/* ANIMACIONES */
-
-/* Transición suave de color */
 @keyframes colorShift {
   0%   { background-position: 0% 0%; }
   100% { background-position: 100% 0%; }
 }
 
-
-
-@keyframes neonMove {
-  0% {
-    background-position: 0%;
-  }
-
-  100% {
-    background-position: 300%;
-  }
-}
-
-.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
-}
-
-
-
-
-/* Responsive */
+/* =====================
+   RESPONSIVE
+   ===================== */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 3.5rem;
-  }
-
-  .btn-enter {
-    width: 80%;
-  }
+  .btn-enter { width: 80%; }
 }
