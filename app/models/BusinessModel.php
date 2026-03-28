@@ -44,4 +44,10 @@ class BusinessModel{
         $stmt = $this->db->query($sql);
         return $stmt->fetchall();
     }
+
+    public function GetAll(){
+        $sql = "SELECT * FROM t200_mv_negocio INNER JOIN t101_mm_cliente ON f200_id_cliente = f101_id";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchall();
+    }
 }
