@@ -6,25 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Localwey - Negocios en Bolívar</title>
 
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- CSS global de la app -->
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    /* Zoom imagen card en hover */
     .entity-card .img-col { overflow: hidden; }
     .entity-card .img-col img { transition: transform .4s ease; }
     .entity-card:hover .img-col img { transform: scale(1.05); }
-
-    /* Sidebar sticky bajo navbar */
     .sidebar-sticky { position: sticky; top: 76px; }
   </style>
 </head>
@@ -34,18 +25,22 @@
   <!-- ═══════════════ NAVBAR ═══════════════ -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm" style="height:60px;z-index:1050">
     <div class="container">
-      <a class="navbar-brand fw-bold fs-4" href="../content/Home.php">
+
+      <!-- Botón retroceder (reemplaza "Acceder") -->
+      <a href="../content/Home.php"
+         class="btn btn-light fw-semibold rounded-pill px-3 d-flex align-items-center gap-2"
+         style="font-size:.9rem;">
+        <i class="bi bi-arrow-left fs-5"></i>
+        <span class="d-none d-sm-inline">Volver</span>
+      </a>
+
+      <!-- Logo centrado -->
+      <a class="navbar-brand fw-bold fs-4 mx-auto position-absolute start-50 translate-middle-x"
+         href="../content/Home.php">
         <i class="bi bi-geo-alt-fill me-1"></i>
         <span id="header-title">Localwey</span>
       </a>
-      <div class="ms-auto d-flex align-items-center gap-3">
-        <nav class="small d-none d-md-flex align-items-center gap-1 text-white opacity-75">
-          <a href="../content/Home.php" class="text-white text-decoration-none opacity-75" id="breadcrumb-home">Inicio</a>
-          <span class="opacity-50">/</span>
-          <span id="breadcrumb-current">Negocios en Bolívar</span>
-        </nav>
-        <button class="btn btn-light text-primary fw-semibold rounded-pill px-3 btn-sm">Acceder</button>
-      </div>
+
     </div>
   </nav>
 
@@ -63,7 +58,6 @@
 
           <div class="card-body p-4">
 
-            <!-- Tipo de negocio -->
             <h6 class="fw-bold mb-3 text-primary small text-uppercase ls-1">
               <i class="bi bi-grid me-1"></i>Tipo de negocio
             </h6>
@@ -102,7 +96,6 @@
 
             <hr class="my-3 opacity-10">
 
-            <!-- Valoración -->
             <h6 class="fw-bold mb-3 text-primary small text-uppercase">
               <i class="bi bi-star me-1"></i>Valoración
             </h6>
@@ -129,7 +122,6 @@
 
             <hr class="my-3 opacity-10">
 
-            <!-- Ubicación -->
             <h6 class="fw-bold mb-3 text-primary small text-uppercase">
               <i class="bi bi-geo-alt me-1"></i>Ubicación
             </h6>
@@ -151,7 +143,6 @@
       <!-- ═══ LISTADO ═══ -->
       <section class="col-lg-9">
 
-        <!-- Header listado -->
         <div class="card border-0 shadow-sm rounded-4 mb-4">
           <div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3 p-4">
             <div>
@@ -306,9 +297,7 @@
     </div>
   </footer>
 
-  <!-- ═══════════════ MODAL VER NEGOCIO ═══════════════
-       Fuera del main para evitar problemas de z-index y scroll
-  ════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ MODAL VER NEGOCIO ═══════════════ -->
   <div class="modal fade" id="entityModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
@@ -392,7 +381,6 @@
 
         <div class="modal-footer border-0 bg-light px-4 pb-4">
           <button class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cerrar</button>
-          <!-- Contactar: cierra este modal y abre el de contacto via JS -->
           <button class="btn btn-primary fw-semibold rounded-pill px-4" id="btn-abrir-contacto">
             <i class="bi bi-telephone me-1"></i>Contactar
           </button>
@@ -441,9 +429,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Abre modal contacto correctamente:
-    // 1. Cierra el modal del negocio
-    // 2. Cuando termina de cerrarse, abre el de contacto
     const modalNegocio  = bootstrap.Modal.getOrCreateInstance(document.getElementById('entityModal'));
     const modalContacto = bootstrap.Modal.getOrCreateInstance(document.getElementById('entityContactModal'));
 
@@ -451,7 +436,6 @@
       modalNegocio.hide();
       document.getElementById('entityModal').addEventListener('hidden.bs.modal', function abrirContacto() {
         modalContacto.show();
-        // Remover listener para que no se acumule
         document.getElementById('entityModal').removeEventListener('hidden.bs.modal', abrirContacto);
       });
     });

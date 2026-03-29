@@ -19,27 +19,116 @@ h1, h2, h3, h4, h5, h6,
 /* =====================
    COLORES LOCALWEY
    ===================== */
-:root { --lw-primary: #1E6FD9; }
-
-/* Redefinir variables de Bootstrap para que bg-primary, text-primary,
-   btn-primary, bg-opacity-*, etc. funcionen todos con el color del proyecto */
 :root {
-  --bs-primary:     #1E6FD9;
-  --bs-primary-rgb: 30, 111, 217;
+  --lw-primary:      #1E6FD9;
+  --primary-local:   #1E6FD9;
+  --primary-dark:    #0d4fa0;
+  --success-local:   #2DBE60;
+  /* Bootstrap override */
+  --bs-primary:      #1E6FD9;
+  --bs-primary-rgb:  30, 111, 217;
 }
 
-.bg-primary-local  { background-color: #1E6FD9 !important; }
-.bg-primary-dark   { background-color: #154C9C !important; }
-.text-primary-local{ color: #1E6FD9 !important; }
+.bg-primary-local   { background-color: #1E6FD9 !important; }
+.bg-primary-dark    { background-color: #0d4fa0 !important; }
+.text-primary-local { color: #1E6FD9 !important; }
+.text-success-local { color: #2DBE60 !important; }
 
-.btn-success-local           { background-color: #2DBE60; color: #fff; border: none; }
-.btn-success-local:hover     { background-color: #26a956; color: #fff; }
-.text-success-local          { color: #2DBE60; }
+.btn-success-local       { background-color: #2DBE60; color: #fff; border: none; }
+.btn-success-local:hover { background-color: #23a352; color: #fff; }
 
 /* =====================
    NAVBAR
    ===================== */
 .navbar { height: 60px; }
+.navbar-brand { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; }
+
+/* =====================
+   FULL PAGE SCROLL
+   ===================== */
+/* DESPUÉS - solo afecta Home.php */
+html.fp-page,
+html.fp-page body {
+  overflow: hidden;
+  height: 100%;
+}
+
+#fp-wrapper {
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#fp-wrapper::-webkit-scrollbar { display: none; }
+
+.fp-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* =====================
+   NAV DOTS
+   ===================== */
+#nav-dots {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1060;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(30, 111, 217, .2);
+  border: 2px solid rgba(30, 111, 217, .4);
+  cursor: pointer;
+  transition: background .25s, transform .25s, border-color .25s;
+}
+
+.dot.active {
+  background: #1E6FD9;
+  border-color: #1E6FD9;
+  transform: scale(1.4);
+}
+
+/* =====================
+   SCROLL ARROW
+   ===================== */
+.scroll-arrow {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background: none;
+  font-size: 1.35rem;
+  cursor: pointer;
+  animation: fp-bounce 1.6s infinite;
+  z-index: 10;
+  padding: 0;
+  line-height: 1;
+}
+
+.scroll-arrow-light { color: rgba(255,255,255,.8); }
+.scroll-arrow-dark  { color: rgba(30,111,217,.6); }
+
+@keyframes fp-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
 
 /* =====================
    HERO
@@ -56,47 +145,155 @@ h1, h2, h3, h4, h5, h6,
   background-repeat: no-repeat;
 }
 
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2;
+}
+
+.hero-location  { opacity: .85; font-size: .95rem; }
+.hero-stat-label { opacity: .75; font-size: .8rem; }
+
+/* =====================
+   BOTÓN EXPLORAR
+   ===================== */
+.btn-explore {
+  background-color: var(--success-local);
+  color: #fff;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: .02em;
+  padding: .85rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  transition: transform .2s, box-shadow .2s, background .2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.btn-explore:hover {
+  background-color: #23a352;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.3);
+}
+
+.btn-explore:active { transform: translateY(0); }
+
+/* =====================
+   SECCIÓN HEADERS
+   ===================== */
+.sec-header-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
 /* =====================
    CARDS
    ===================== */
 .card {
   transition: transform .25s ease, box-shadow .25s ease;
+  overflow: hidden;
+  border-radius: 12px !important;
 }
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 25px rgba(0,0,0,.08);
 }
+
 .card-img-top {
-  height: 180px;
+  height: 160px;
   object-fit: cover;
+  transition: transform .4s ease;
 }
+
+.card:hover .card-img-top { transform: scale(1.06); }
 
 /* =====================
    CATEGORY CARD
    ===================== */
-.category-card { transition: all .2s ease; }
+.category-card {
+  transition: transform .25s, box-shadow .25s;
+  cursor: pointer;
+}
+
 .category-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  box-shadow: 0 8px 24px rgba(30,111,217,.15) !important;
 }
 
 /* =====================
    PROMO
    ===================== */
+.promo-card { border-radius: 12px; overflow: hidden; }
+
 .promo-img {
+  width: 100%;
   height: 220px;
   object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
 }
+
+.promo-card:hover .promo-img { transform: scale(1.05); }
+
 .overlay-dark {
-  background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 60%);
+  border-radius: 0;
 }
+
+/* =====================
+   OPEN DOT (Abierto)
+   ===================== */
+.open-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .75rem;
+  color: #2DBE60;
+  font-weight: 600;
+}
+
+.open-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2DBE60;
+  animation: fp-pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes fp-pulse {
+  0%, 100% { opacity: 1 }
+  50%       { opacity: .3 }
+}
+
+/* =====================
+   CTA
+   ===================== */
+.cta-wrap { border-radius: 16px !important; }
+.cta-sub  { opacity: .85; }
 
 /* =====================
    FOOTER
    ===================== */
 footer { font-family: 'Montserrat', sans-serif; }
 
+.footer-brand { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
+.footer-copy  { opacity: .75; }
+.admin-link   { opacity: .5; font-size: .75rem; }
+.admin-link:hover { opacity: 1; }
 
+/* =====================
+   UTILIDADES
+   ===================== */
 .object-fit-cover { object-fit: cover; }
 .text-warning     { letter-spacing: 1px; }
 .hidden           { display: none; }
@@ -134,6 +331,7 @@ footer { font-family: 'Montserrat', sans-serif; }
   font-weight: 500;
   letter-spacing: 1px;
 }
+
 .btn-enter:hover {
   background-color: #8e7342;
   transform: translateY(-3px);
@@ -157,6 +355,7 @@ footer { font-family: 'Montserrat', sans-serif; }
   z-index: 9999;
   transition: opacity .6s ease;
 }
+
 #preloader.hidden   { display: none !important; }
 #preloader.fade-out { opacity: 0; pointer-events: none; visibility: hidden; }
 
@@ -168,20 +367,25 @@ footer { font-family: 'Montserrat', sans-serif; }
   font-family: 'Montserrat', sans-serif;
   opacity: .85;
 }
+
 .progress-container {
-  width: 300px; height: 10px;
+  width: 300px;
+  height: 10px;
   background: rgba(255,255,255,.2);
   border-radius: 10px;
   overflow: hidden;
 }
+
 .progress-bar {
-  height: 100%; width: 0%;
+  height: 100%;
+  width: 0%;
   background: linear-gradient(90deg, #f3683a, #f3683a, #1E6FD9, #1E6FD9);
   background-size: 200% 100%;
   animation: colorShift 2.5s ease-in-out infinite;
   box-shadow: 0 0 8px rgba(30,111,217,.4);
   transition: width .3s ease;
 }
+
 .percent {
   margin-top: 12px;
   font-size: 11px;
