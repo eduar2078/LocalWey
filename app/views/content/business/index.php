@@ -47,18 +47,17 @@
     <!-- ═══════════════ NAVBAR ═══════════════ -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm" style="height:60px;z-index:1050">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="../content/Home.php">
+            <!-- Botón retroceder (reemplaza "Acceder") -->
+            <a href="<?php echo PATH_BASE;?>App/Home"
+                class="btn btn-light fw-semibold rounded-pill px-3 d-flex align-items-center gap-2"
+                style="font-size:.9rem;">
+                <i class="bi bi-arrow-left fs-5"></i>
+                <span class="d-none d-sm-inline">Volver</span>
+            </a>
+            <a class="navbar-brand fw-bold fs-4 mx-auto position-absolute start-50 translate-middle-x" href="../content/Home.php">
                 <i class="bi bi-geo-alt-fill me-1"></i>
                 <span id="header-title">Localwey</span>
             </a>
-            <div class="ms-auto d-flex align-items-center gap-3">
-                <nav class="small d-none d-md-flex align-items-center gap-1 text-white opacity-75">
-                    <a href="../content/Home.php" class="text-white text-decoration-none opacity-75" id="breadcrumb-home">Inicio</a>
-                    <span class="opacity-50">/</span>
-                    <span id="breadcrumb-current">Negocios en Bolívar</span>
-                </nav>
-                <button class="btn btn-light text-primary fw-semibold rounded-pill px-3 btn-sm">Acceder</button>
-            </div>
         </div>
     </nav>
     <!-- ================= MAIN ================= -->
