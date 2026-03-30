@@ -56,16 +56,12 @@ html.fp-page body {
 #fp-wrapper {
   height: calc(100vh - 60px);
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
   scrollbar-width: none;
 }
 
 #fp-wrapper::-webkit-scrollbar { display: none; }
 
 .fp-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   min-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
@@ -407,3 +403,64 @@ footer { font-family: 'Montserrat', sans-serif; }
 @media (max-width: 600px) {
   .btn-enter { width: 80%; }
 }
+/* =====================
+   PANTALLA INICIO — LOGO LOCALWEY ANIMADO
+   ===================== */
+body:has(#logo-svg) {
+  background-color: #f0f2f5;
+  overflow: auto !important;
+  height: auto !important;
+}
+#L-base {
+  stroke-dasharray: 950;
+  stroke-dashoffset: 950;
+  animation: lw-draw 0.9s cubic-bezier(.4,0,.2,1) 0.2s forwards;
+}
+#L-fill   { opacity: 0; animation: lw-fade 0.4s  ease 0.85s forwards; }
+#L-shadow { opacity: 0; animation: lw-fade 0.35s ease 1.0s  forwards; }
+#W-back-stroke {
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  animation: lw-draw 0.65s cubic-bezier(.4,0,.2,1) 0.9s forwards;
+}
+#W-back-fill { opacity: 0; animation: lw-fade 0.35s ease 1.35s forwards; }
+#W-front-stroke {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: lw-draw 0.65s cubic-bezier(.4,0,.2,1) 1.2s forwards;
+}
+#W-front-fill   { opacity: 0; animation: lw-fade 0.35s ease 1.65s forwards; }
+#W-cross-shadow { opacity: 0; animation: lw-fade 0.3s  ease 1.7s  forwards; }
+#arrow-head     { opacity: 0; animation: lw-fade 0.3s  ease 1.7s  forwards; }
+#dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  opacity: 0;
+  animation: lw-pop 0.42s cubic-bezier(.34,1.56,.64,1) 1.75s forwards;
+}
+#brand-name {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: lw-slide-up 0.5s cubic-bezier(.4,0,.2,1) 2.0s forwards;
+}
+#progress-wrap { opacity: 0; animation: lw-fade 0.3s ease 2.4s forwards; }
+#lw-bar-track {
+  width: 180px;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 99px;
+  overflow: hidden;
+}
+#lw-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #2a7bd4, #2db77e);
+  animation: lw-load-bar 1.15s cubic-bezier(.4,0,.2,1) 2.5s forwards;
+}
+@keyframes lw-draw     { to { stroke-dashoffset: 0; } }
+@keyframes lw-fade     { to { opacity: 1; } }
+@keyframes lw-pop      { to { transform: scale(1); opacity: 1; } }
+@keyframes lw-slide-up { to { opacity: 1; transform: translateY(0); } }
+@keyframes lw-load-bar { to { width: 100%; } }
