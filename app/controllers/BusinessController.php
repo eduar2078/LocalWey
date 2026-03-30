@@ -5,10 +5,9 @@ namespace app\controllers;
 use app\models\BusinessModel;
 
 class BusinessController{
-    public function ShowAll(){
+    public function Show(){
         $businessModel = new BusinessModel();
-        $typeBusiness = $businessModel->GetTypeBusinessxId($_GET["id"]);
-        $business = $businessModel->GetxTypeBusinessxStatus($_GET["id"], 'ACT');
+        $business = $businessModel->GetxStatus('ACT');
 
         require_once "app/views/content/business/index.php";
     }

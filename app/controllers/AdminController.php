@@ -9,7 +9,9 @@ class AdminController{
     public function Index(){
         require_once "app/views/content/admin/index.php";
     }
-    // Negocios
+    /////////////////////////////////////////////////////////////
+    ////////////////////// Negocios ////////////////////////
+    ///////////////////////////////////////////////////////////
     public function IndexBusiness(){
         require_once "app/views/content/admin/business/index.php";
     }

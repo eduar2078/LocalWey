@@ -33,10 +33,9 @@
   <!-- DOTS -->
   <div id="nav-dots">
     <span class="dot active" data-target="0" title="Inicio"></span>
-    <span class="dot" data-target="1" title="Categorías"></span>
-    <span class="dot" data-target="2" title="Promos"></span>
-    <span class="dot" data-target="3" title="Negocios"></span>
-    <span class="dot" data-target="4" title="Publicar"></span>
+    <span class="dot" data-target="1" title="Promos"></span>
+    <span class="dot" data-target="2" title="Negocios"></span>
+    <span class="dot" data-target="3" title="Publicar"></span>
   </div>
 
   <div id="fp-wrapper">
@@ -51,7 +50,7 @@
           Descubre los mejores<br>negocios cerca de ti
         </h1>
         <div class="mb-5">
-          <a href="restaurant.php" class="btn-explore">
+          <a href="<?php echo PATH_BASE; ?>Business/Show" class="btn-explore">
             <i class="bi bi-compass-fill" style="font-size:1.1rem;"></i>
             Explorar negocios cerca de ti
           </a>
