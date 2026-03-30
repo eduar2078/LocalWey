@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style.css">
+  <link rel="stylesheet" href="<?php echo PATH_CSS; ?>app.css">
 </head>
 
 <body>

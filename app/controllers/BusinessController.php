@@ -9,7 +9,7 @@ class BusinessController{
         $businessModel = new BusinessModel();
         $business = $businessModel->GetxStatus('ACT');
 
-        require_once "app/views/content/business/index.php";
+        require_once "app/views/content/business.view.php";
     }
 
     public function GetInfoxId(){

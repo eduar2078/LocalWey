@@ -13,10 +13,8 @@ class Connection{
         try{
             $dsn = "mysql:host=".HOST_DATABASE.";dbname=".NAME_DATABASE.";charset=utf8mb4";
             $this->connection = new PDO($dsn, USER_DATABASE, PWD_DATABASE);
-            $this->connection->setAttribute(
-                PDO::ATTR_ERRMODE,
-                PDO::ERRMODE_EXCEPTION
-            );
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (PDOException $e){
             die("Error de conexión: " . $e->getMessage()); 
         }

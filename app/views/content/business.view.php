@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- CSS propio -->
-    <link rel="stylesheet" href="<?php echo PATH_CSS; ?>style.css">
+    <link rel="stylesheet" href="<?php echo PATH_CSS; ?>app.css">
 
     <style>
         /* Zoom imagen card en hover */

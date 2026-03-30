@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Panel de Administración | Localwey</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
         body {
             background: #f5f7fb;
@@ -88,7 +87,7 @@
                     <!-- Consultar negocios -->
                     <div class="col-md-6">
                         <div class="action-card bg-white border rounded-4 shadow-sm p-4 h-100">
-                            <a href="<?php echo PATH_BASE;?>Admin/ListBusiness" class="text-reset text-decoration-none">
+                            <a href="<?php echo PATH_BASE; ?>Admin/ListBusiness" class="text-reset text-decoration-none">
                                 <div class="d-flex gap-3 align-items-center">
                                     <div class="icon-box bg-soft-blue rounded-4 d-flex align-items-center justify-content-center">
                                         <svg width="26" height="26" fill="none" stroke="#6366f1" stroke-width="2">
@@ -124,59 +123,76 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
+                    <form id="form-create-business">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="" class="form-label fw-bold">Cliente <span class="text-danger">*</span></label>
-                                <select name="" id="" class="form-control">
+                                <label for="slt-create-client" class="form-label fw-bold">Cliente <span class="text-danger">*</span></label>
+                                <select name="slt-create-client" id="slt-create-client" class="form-control field" required>
                                     <option value="">Seleccione una opción</option>
-                                </select>
-                            </div>
-                            
-                            <div class="col-12 col-md-6 mb-3">
-                                <label for="" class="form-label fw-bold">Nombre del negocio  <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control">
-                            </div>
-
-                            <div class="col-12">
-                                <label for="" class="form-label fw-bold">Descripción</label>
-                                <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
-                            </div>
-
-                            <div class="col-12 col-md-4">
-                                <label for="" class="form-label fw-bold">Municipio <span class="text-danger">*</span></label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Seleccione una opción</option>
-                                </select>
-                            </div>
-
-                            <div class="col-12 col-md-4">
-                                <label for="" class="form-label fw-bold">Corregimiento / Barrio</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Seleccione una opción</option>
+                                    <?php
+                                        foreach ($clientsEnableds as $key => $value) {
+                                            echo '<option value="'.$value["f101_id"].'">'.$value["f101_razon_social"].'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
 
                             <div class="col-12 col-md-4 mb-3">
-                                <label for="" class="form-label fw-bold">Tipo negocio <span class="text-danger">*</span></label>
-                                <select name="" id="" class="form-control">
+                                <label for="slt-create-type-business" class="form-label fw-bold">Tipo negocio <span class="text-danger">*</span></label>
+                                <select name="slt-create-type-business" id="slt-create-type-business" class="form-control field" required>
+                                    <option value="">Seleccione una opción</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="txt-create-name-business" class="form-label fw-bold">Nombre del negocio <span class="text-danger">*</span></label>
+                                <input type="text" name="txt-create-name-business" id="txt-create-name-business" class="form-control field" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="txt-create-description" class="form-label fw-bold">Descripción</label>
+                                <textarea name="txt-create-description" id="txt-create-description" cols="30" rows="3" class="form-control field"></textarea>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label for="slt-create-department" class="form-label fw-bold">Departamento <span class="text-danger">*</span></label>
+                                <select name="slt-create-department" id="slt-create-department" class="form-control field" onchange="getMunicipalityxDepartment(event)" required>
+                                    <option value="">Seleccione una opción</option>
+                                    <?php
+                                        foreach ($departmentsEnableds as $key => $value) {
+                                            echo '<option value="'.$value["f105_id"].'">'.$value["f105_departamento"].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label for="slt-create-municipality" class="form-label fw-bold">Municipio <span class="text-danger">*</span></label>
+                                <select name="slt-create-municipality" id="slt-create-municipality" class="form-control field" required>
+                                    <option value="">Seleccione una opción</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label for="slt-create-neighborhood" class="form-label fw-bold">Corregimiento / Barrio</label>
+                                <select name="slt-create-neighborhood" id="slt-create-neighborhood" class="form-control field">
                                     <option value="">Seleccione una opción</option>
                                 </select>
                             </div>
 
                             <div class="col-12">
-                                <label for="" class="form-label fw-bold">Dirección <span class="text-danger">*</span></label>
-                                <input type="text" name="" id="" class="form-control">
+                                <label for="txt-create-address" class="form-label fw-bold">Dirección <span class="text-danger">*</span></label>
+                                <input type="text" name="txt-create-address" id="txt-create-address" class="form-control field" required>
                             </div>
 
                             <div class="col-12">
-                                <label for="" class="form-label fw-bold">Imagen portada</label>
-                                <input type="file" name="" id="" class="form-control">
+                                <label for="file-create-image-frontPage" class="form-label fw-bold">Imagen portada</label>
+                                <input type="file" name="file-create-image-frontPage" id="file-create-image-frontPage" class="form-control field">
                             </div>
 
                             <div class="col-12">
-                                <label for="" class="form-label fw-bold">Imagen principal</label>
-                                <input type="file" name="" id="" class="form-control">
+                                <label for="file-create-image-major" class="form-label fw-bold">Imagen principal</label>
+                                <input type="file" name="file-create-image-major" id="file-create-image-major" class="form-control field">
                             </div>
 
                             <!-- <div class="col-12">
@@ -189,13 +205,20 @@
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary">Guardar</button>
+                    <button class="btn btn-primary" onclick="createBusiness()">Guardar</button>
                 </div>
             </div>
         </div>
     </div>
-
+    
+    <script>
+        const PATH_BASE = "<?php echo PATH_BASE; ?>"
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo PATH_JS; ?>sweetalert2@11.js"></script>
+    <script src="<?php echo PATH_JS;?>jquery-4.0.0.min.js"></script>
+    <script src="<?php echo PATH_JS; ?>app.js"></script>
+    <script src="<?php echo PATH_JS; ?>admin.js"></script>
 </body>
 
 </html>

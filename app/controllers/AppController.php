@@ -5,13 +5,13 @@ use App\Models\BusinessModel;
 
 class AppController{
     public function Index(){
-        require_once "app/views/content/home/index.php";
+        require_once "app/views/content/index.php";
     }
 
     public function Home(){
         $businessModel = new BusinessModel();
         $typeBusiness = $businessModel->GetTypeBusinessxStatus('ACT');
 
-        require_once "app/views/content/home/HomeView.php";
+        require_once "app/views/content/home.View.php";
     }
 }

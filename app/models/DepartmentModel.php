@@ -1,10 +1,9 @@
 <?php
-
 namespace app\models;
 
 use app\database\Connection;
 
-class ClientModel{
+class DepartmentModel{
     private $db;
 
     public function __construct(){
@@ -12,7 +11,7 @@ class ClientModel{
     }
 
     public function getxStatus(string $status){
-        $sql = "SELECT * FROM t101_mm_cliente WHERE f101_id_estado = '$status' ";
+        $sql = "SELECT * FROM t105_mm_departamento WHERE f105_id_estado = '$status'";
         $stmt = $this->db->query($sql);
         return $stmt->fetchall();
     }
