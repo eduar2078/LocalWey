@@ -1,17 +1,24 @@
 <?php
 namespace app\controllers;
 
-use App\Models\BusinessModel;
+use App\Models\MunicipalityModel;
 
 class AppController{
+    private $municipalityModel;
+
     public function Index(){
-        require_once "app/views/content/index.php";
+        require_once "app/views/content/index.view.php";
     }
 
     public function Home(){
-        $businessModel = new BusinessModel();
-        $typeBusiness = $businessModel->GetTypeBusinessxStatus('ACT');
+        $this->municipalityModel = new MunicipalityModel();
+        $municipalitysEnableds = $this->municipalityModel->getxStatus('ACT');
+        require_once "app/views/content/home.view.php";
+    }
 
-        require_once "app/views/content/home.View.php";
+    public function Major(){
+        $this->municipalityModel = new MunicipalityModel();
+        $location = $this->municipalityModel->getxId($_GET["id"]);
+        require_once "app/views/content/major.view.php";
     }
 }

@@ -48,7 +48,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm" style="height:60px;z-index:1050">
         <div class="container">
             <!-- Botón retroceder (reemplaza "Acceder") -->
-            <a href="<?php echo PATH_BASE;?>App/Home"
+            <a href="<?php echo PATH_BASE;?>App/Major/<?php echo $_GET["id"]; ?>"
                 class="btn btn-light fw-semibold rounded-pill px-3 d-flex align-items-center gap-2"
                 style="font-size:.9rem;">
                 <i class="bi bi-arrow-left fs-5"></i>
