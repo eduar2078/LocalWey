@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form id="form-create-business">
+                    <form id="form-create-business" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="slt-create-client" class="form-label fw-bold">Cliente <span class="text-danger">*</span></label>
@@ -141,6 +141,11 @@
                                 <label for="slt-create-type-business" class="form-label fw-bold">Tipo negocio <span class="text-danger">*</span></label>
                                 <select name="slt-create-type-business" id="slt-create-type-business" class="form-control field" required>
                                     <option value="">Seleccione una opción</option>
+                                    <?php
+                                        foreach ($typeBusinessEnableds as $key => $value) {
+                                            echo '<option value="'.$value["f102_id"].'">'.ucfirst(strtolower(substr($value["f102_tipo_negocio"], 0, strlen($value["f102_tipo_negocio"]) - 1))).'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
 
@@ -168,7 +173,7 @@
 
                             <div class="col-12 col-md-4">
                                 <label for="slt-create-municipality" class="form-label fw-bold">Municipio <span class="text-danger">*</span></label>
-                                <select name="slt-create-municipality" id="slt-create-municipality" class="form-control field" required>
+                                <select name="slt-create-municipality" id="slt-create-municipality" class="form-control field" onchange="getNeighborhoodsxMunicipality(event)" required>
                                     <option value="">Seleccione una opción</option>
                                 </select>
                             </div>
@@ -186,19 +191,14 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="file-create-image-frontPage" class="form-label fw-bold">Imagen portada</label>
-                                <input type="file" name="file-create-image-frontPage" id="file-create-image-frontPage" class="form-control field">
+                                <label for="file-create-image-frontPage" class="form-label fw-bold">Imagen portada <span class="text-danger">*</span></label>
+                                <input type="file" name="file-create-image-frontPage" id="file-create-image-frontPage" class="form-control field" required>
                             </div>
 
                             <div class="col-12">
-                                <label for="file-create-image-major" class="form-label fw-bold">Imagen principal</label>
-                                <input type="file" name="file-create-image-major" id="file-create-image-major" class="form-control field">
+                                <label for="file-create-image-major" class="form-label fw-bold">Imagen principal <span class="text-danger">*</span></label>
+                                <input type="file" name="file-create-image-major" id="file-create-image-major" class="form-control field" required>
                             </div>
-
-                            <!-- <div class="col-12">
-                                <label for="" class="form-label fw-bold">Galeria</label>
-                                <input type="file" name="" id="" class="form-control" multiple>
-                            </div> -->
                         </div>
                     </form>
                 </div>
