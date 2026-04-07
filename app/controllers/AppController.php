@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 
-use App\Models\MunicipalityModel;
+use app\models\MunicipalityModel;
 
 class AppController{
     private $municipalityModel;

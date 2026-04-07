@@ -1,0 +1,2 @@
+# Omitir toda una carpeta
+/app/views/resources/business/**

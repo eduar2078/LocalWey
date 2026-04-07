@@ -34,18 +34,55 @@
         </div>
     </nav>
 
+    <!-- CARROUSEL -->
+    <div class="carousel-wrapper">
+        <!-- REDIRECCIÓN A BUSQUEDA DE NEGOCIOS -->
+        <div class="hero-content">
+            <div class="container text-white py-5">
+                <p class="fw-semibold mb-1">
+                    <i class="bi bi-geo-alt-fill me-1"></i>
+                    Estás en
+                    <strong>
+                        <?php echo $location[0]["f104_municipio"] . " - " . $location[0]["f105_departamento"]; ?>
+                    </strong>
+                </p>
+                <h1 class="fw-bold mb-4">Descubre los mejores<br>negocios cerca de ti</h1>
+                <div class="mb-5">
+                    <a href="<?php echo PATH_BASE; ?>Business/Show/<?php echo $_GET["id"]; ?>" class="btn-explore">
+                        <i class="bi bi-compass-fill"></i>
+                        Explorar negocios cerca de ti
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- IMAGENES -->
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="<?php echo PATH_IMG; ?>FOTO 1.png" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="<?php echo PATH_IMG; ?>FOTO 2.png" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="<?php echo PATH_IMG; ?>FOTO 3.jpeg" class="d-block w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- DOTS -->
-    <div id="nav-dots">
+    <!-- <div id="nav-dots">
         <span class="dot active" data-target="0" title="Inicio"></span>
         <span class="dot" data-target="1" title="Promos"></span>
         <span class="dot" data-target="2" title="Negocios"></span>
         <span class="dot" data-target="3" title="Publicar"></span>
-    </div>
+    </div> -->
 
-    <div id="fp-wrapper">
+    <!-- <div id="fp-wrapper"> -->
 
-        <!-- S1 — HERO -->
-        <section class="fp-section hero-bg" data-index="0">
+    <!-- S1 — HERO -->
+    <!-- <section class="fp-section hero-bg" data-index="0">
             <div class="container text-white py-5">
                 <p class="fw-semibold mb-1 hero-location">
                     <i class="bi bi-geo-alt-fill me-1"></i>Estás en: <strong><?php echo $location[0]["f104_municipio"] . " - " . $location[0]["f105_departamento"]; ?></strong>
@@ -64,10 +101,27 @@
             <button class="scroll-arrow scroll-arrow-light" onclick="goTo(1)">
                 <i class="bi bi-chevron-down"></i>
             </button>
-        </section>
+        </section> -->
 
-        <!-- S2 — PROMOS -->
-        <section class="fp-section bg-white" data-index="1">
+    <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Historia</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Contactanos</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="history-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <h1>Historia</h1>
+            </div>
+            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <h1>Contactanos</h1>
+            </div>
+        </div> -->
+
+    <!-- S2 — PROMOS -->
+    <!-- <section class="fp-section bg-white" data-index="1">
             <div class="container py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h5 class="sec-header-title mb-0">🔥 Promos Destacadas</h5>
@@ -116,10 +170,10 @@
             <button class="scroll-arrow scroll-arrow-dark" onclick="goTo(2)">
                 <i class="bi bi-chevron-down"></i>
             </button>
-        </section>
+        </section> -->
 
-        <!-- S3 — NEGOCIOS POPULARES -->
-        <section class="fp-section bg-light" data-index="2">
+    <!-- S3 — NEGOCIOS POPULARES -->
+    <!-- <section class="fp-section bg-light" data-index="2">
             <div class="container py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h5 class="sec-header-title mb-0">Negocios Populares</h5>
@@ -196,10 +250,10 @@
             <button class="scroll-arrow scroll-arrow-dark" onclick="goTo(3)">
                 <i class="bi bi-chevron-down"></i>
             </button>
-        </section>
+        </section> -->
 
-        <!-- S4 — CTA + FOOTER -->
-        <section class="fp-section bg-light" data-index="3">
+    <!-- S4 — CTA + FOOTER -->
+    <!-- <section class="fp-section bg-light" data-index="3">
             <div class="container py-4">
 
                 <div class="p-5 rounded text-white bg-primary-dark cta-wrap mb-4">
@@ -226,9 +280,9 @@
                 </footer>
 
             </div>
-        </section>
+        </section> -->
 
-    </div><!-- /fp-wrapper -->
+    <!-- </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FontAwesome Iconos -->

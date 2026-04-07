@@ -205,7 +205,7 @@
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary" onclick="createBusiness()">Guardar</button>
+                    <button class="btn btn-primary" id="btn-create-business" onclick="createBusiness()">Guardar</button>
                 </div>
             </div>
         </div>

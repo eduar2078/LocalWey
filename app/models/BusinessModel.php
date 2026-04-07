@@ -89,7 +89,11 @@ class BusinessModel{
     }
 
     public function GetAll(){
-        $sql = "SELECT * FROM t200_mv_negocio INNER JOIN t101_mm_cliente ON f200_id_cliente = f101_id";
+        $sql = "SELECT * FROM t200_mv_negocio 
+        INNER JOIN t101_mm_cliente ON f200_id_cliente = f101_id
+        INNER JOIN t102_mm_tipo_negocio ON f200_id_tipo_negocio = f102_id
+        INNER JOIN t104_mm_municipio ON f200_id_municipio = f104_id
+        INNER JOIN t103_mm_estado ON f200_id_estado = f103_id";
         $stmt = $this->db->query($sql);
         return $stmt->fetchall();
     }

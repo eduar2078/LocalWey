@@ -1,158 +1,88 @@
 /* =====================
-   RESET BÁSICO
-   ===================== */
-*, *::before, *::after { box-sizing: border-box; }
-
-/* =====================
-   FUENTES
-   ===================== */
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f5f7fa;
-}
-
-h1, h2, h3, h4, h5, h6,
-.fw-bold, .fw-semibold {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* =====================
    COLORES LOCALWEY
    ===================== */
 :root {
-  --lw-primary:      #1E6FD9;
-  --primary-local:   #1E6FD9;
-  --primary-dark:    #0d4fa0;
-  --success-local:   #2DBE60;
+  --lw-primary: #1E6FD9;
+  --primary-local: #1E6FD9;
+  --primary-dark: #0d4fa0;
+  --success-local: #2DBE60;
   /* Bootstrap override */
-  --bs-primary:      #1E6FD9;
-  --bs-primary-rgb:  30, 111, 217;
+  --bs-primary: #1E6FD9;
+  --bs-primary-rgb: 30, 111, 217;
 }
 
-.bg-primary-local   { background-color: #1E6FD9 !important; }
-.bg-primary-dark    { background-color: #0d4fa0 !important; }
-.text-primary-local { color: #1E6FD9 !important; }
-.text-success-local { color: #2DBE60 !important; }
+.bg-primary-local {
+  background-color: #1E6FD9 !important;
+}
 
-.btn-success-local       { background-color: #2DBE60; color: #fff; border: none; }
-.btn-success-local:hover { background-color: #23a352; color: #fff; }
+.bg-primary-dark {
+  background-color: #0d4fa0 !important;
+}
+
+.text-primary-local {
+  color: #1E6FD9 !important;
+}
+
+.text-success-local {
+  color: #2DBE60 !important;
+}
+
+.btn-success-local {
+  background-color: #2DBE60;
+  color: #fff;
+  border: none;
+}
+
+.btn-success-local:hover {
+  background-color: #23a352;
+  color: #fff;
+}
 
 /* =====================
    NAVBAR
    ===================== */
-.navbar { height: 60px; }
-.navbar-brand { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; }
+.navbar {
+  height: 60px;
+}
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+}
 
 /* =====================
-   FULL PAGE SCROLL
+   CARROUSEL
    ===================== */
-/* DESPUÉS - solo afecta Home.php */
-html.fp-page,
-html.fp-page body {
-  overflow: hidden;
-  height: 100%;
-}
-
-#fp-wrapper {
-  height: calc(100vh - 60px);
-  overflow-y: scroll;
-  scrollbar-width: none;
-}
-
-#fp-wrapper::-webkit-scrollbar { display: none; }
-
-.fp-section {
-  min-height: calc(100vh - 60px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.carousel-wrapper {
   position: relative;
 }
 
-/* =====================
-   NAV DOTS
-   ===================== */
-#nav-dots {
-  position: fixed;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1060;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.carousel-inner {
+  height: 350px;
 }
 
-.dot {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(30, 111, 217, .2);
-  border: 2px solid rgba(30, 111, 217, .4);
-  cursor: pointer;
-  transition: background .25s, transform .25s, border-color .25s;
+.carousel-item {
+  height: 100%;
 }
 
-.dot.active {
-  background: #1E6FD9;
-  border-color: #1E6FD9;
-  transform: scale(1.4);
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
 }
 
-/* =====================
-   SCROLL ARROW
-   ===================== */
-.scroll-arrow {
+.hero-content {
   position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: none;
-  background: none;
-  font-size: 1.35rem;
-  cursor: pointer;
-  animation: fp-bounce 1.6s infinite;
-  z-index: 10;
-  padding: 0;
-  line-height: 1;
-}
-
-.scroll-arrow-light { color: rgba(255,255,255,.8); }
-.scroll-arrow-dark  { color: rgba(30,111,217,.6); }
-
-@keyframes fp-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(7px); }
-}
-
-/* =====================
-   HERO
-   ===================== */
-.hero-bg {
-  min-height: 320px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-    url("../img/WhatsApp Image 2026-02-02 at 8.36.01 PM.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  z-index: 10;
 }
 
-.hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  line-height: 1.2;
-}
-
-.hero-location  { opacity: .85; font-size: .95rem; }
-.hero-stat-label { opacity: .75; font-size: .8rem; }
-
-/* =====================
-   BOTÓN EXPLORAR
-   ===================== */
 .btn-explore {
   background-color: var(--success-local);
   color: #fff;
@@ -179,288 +109,3 @@ html.fp-page body {
 }
 
 .btn-explore:active { transform: translateY(0); }
-
-/* =====================
-   SECCIÓN HEADERS
-   ===================== */
-.sec-header-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-/* =====================
-   CARDS
-   ===================== */
-.card {
-  transition: transform .25s ease, box-shadow .25s ease;
-  overflow: hidden;
-  border-radius: 12px !important;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(0,0,0,.08);
-}
-
-.card-img-top {
-  height: 160px;
-  object-fit: cover;
-  transition: transform .4s ease;
-}
-
-.card:hover .card-img-top { transform: scale(1.06); }
-
-/* =====================
-   CATEGORY CARD
-   ===================== */
-.category-card {
-  transition: transform .25s, box-shadow .25s;
-  cursor: pointer;
-}
-
-.category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(30,111,217,.15) !important;
-}
-
-/* =====================
-   PROMO
-   ===================== */
-.promo-card { border-radius: 12px; overflow: hidden; }
-
-.promo-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  transition: transform .4s ease;
-}
-
-.promo-card:hover .promo-img { transform: scale(1.05); }
-
-.overlay-dark {
-  background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 60%);
-  border-radius: 0;
-}
-
-/* =====================
-   OPEN DOT (Abierto)
-   ===================== */
-.open-dot {
-  display: inline-flex;
-  align-items: center;
-  gap: .3rem;
-  font-size: .75rem;
-  color: #2DBE60;
-  font-weight: 600;
-}
-
-.open-dot::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #2DBE60;
-  animation: fp-pulse 2s infinite;
-  flex-shrink: 0;
-}
-
-@keyframes fp-pulse {
-  0%, 100% { opacity: 1 }
-  50%       { opacity: .3 }
-}
-
-/* =====================
-   CTA
-   ===================== */
-.cta-wrap { border-radius: 16px !important; }
-.cta-sub  { opacity: .85; }
-
-/* =====================
-   FOOTER
-   ===================== */
-footer { font-family: 'Montserrat', sans-serif; }
-
-.footer-brand { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
-.footer-copy  { opacity: .75; }
-.admin-link   { opacity: .5; font-size: .75rem; }
-.admin-link:hover { opacity: 1; }
-
-/* =====================
-   UTILIDADES
-   ===================== */
-.object-fit-cover { object-fit: cover; }
-.text-warning     { letter-spacing: 1px; }
-.hidden           { display: none; }
-.fade-out         { opacity: 0; pointer-events: none; transition: opacity .6s ease; }
-
-/* =====================
-   PANTALLA BIENVENIDA
-   ===================== */
-.bg-image {
-  background-image:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url("../img/ChatGPT Image 2 feb 2026, 08_23_07 p.m..png");
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-}
-
-.btn-enter {
-  padding: 15px 45px;
-  font-size: 1.2rem;
-  color: #fff;
-  background-color: #b59458;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all .3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,.35);
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-.btn-enter:hover {
-  background-color: #8e7342;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,.45);
-}
-
-/* =====================
-   PRELOADER
-   ===================== */
-#preloader {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('../img/paisaje.jpeg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity .6s ease;
-}
-
-#preloader.hidden   { display: none !important; }
-#preloader.fade-out { opacity: 0; pointer-events: none; visibility: hidden; }
-
-.loading-text {
-  color: #f3ede9;
-  font-size: 12px;
-  letter-spacing: 3px;
-  margin-bottom: 22px;
-  font-family: 'Montserrat', sans-serif;
-  opacity: .85;
-}
-
-.progress-container {
-  width: 300px;
-  height: 10px;
-  background: rgba(255,255,255,.2);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #f3683a, #f3683a, #1E6FD9, #1E6FD9);
-  background-size: 200% 100%;
-  animation: colorShift 2.5s ease-in-out infinite;
-  box-shadow: 0 0 8px rgba(30,111,217,.4);
-  transition: width .3s ease;
-}
-
-.percent {
-  margin-top: 12px;
-  font-size: 11px;
-  color: #f3ede9;
-  opacity: .7;
-}
-
-/* =====================
-   ANIMACIONES GLOBALES
-   ===================== */
-@keyframes colorShift {
-  0%   { background-position: 0% 0%; }
-  100% { background-position: 100% 0%; }
-}
-
-/* =====================
-   RESPONSIVE
-   ===================== */
-@media (max-width: 600px) {
-  .btn-enter { width: 80%; }
-}
-/* =====================
-   PANTALLA INICIO — LOGO LOCALWEY ANIMADO
-   ===================== */
-body:has(#logo-svg) {
-  background-color: #f0f2f5;
-  overflow: auto !important;
-  height: auto !important;
-}
-#L-base {
-  stroke-dasharray: 950;
-  stroke-dashoffset: 950;
-  animation: lw-draw 0.9s cubic-bezier(.4,0,.2,1) 0.2s forwards;
-}
-#L-fill   { opacity: 0; animation: lw-fade 0.4s  ease 0.85s forwards; }
-#L-shadow { opacity: 0; animation: lw-fade 0.35s ease 1.0s  forwards; }
-#W-back-stroke {
-  stroke-dasharray: 450;
-  stroke-dashoffset: 450;
-  animation: lw-draw 0.65s cubic-bezier(.4,0,.2,1) 0.9s forwards;
-}
-#W-back-fill { opacity: 0; animation: lw-fade 0.35s ease 1.35s forwards; }
-#W-front-stroke {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: lw-draw 0.65s cubic-bezier(.4,0,.2,1) 1.2s forwards;
-}
-#W-front-fill   { opacity: 0; animation: lw-fade 0.35s ease 1.65s forwards; }
-#W-cross-shadow { opacity: 0; animation: lw-fade 0.3s  ease 1.7s  forwards; }
-#arrow-head     { opacity: 0; animation: lw-fade 0.3s  ease 1.7s  forwards; }
-#dot {
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scale(0);
-  opacity: 0;
-  animation: lw-pop 0.42s cubic-bezier(.34,1.56,.64,1) 1.75s forwards;
-}
-#brand-name {
-  opacity: 0;
-  transform: translateY(12px);
-  animation: lw-slide-up 0.5s cubic-bezier(.4,0,.2,1) 2.0s forwards;
-}
-#progress-wrap { opacity: 0; animation: lw-fade 0.3s ease 2.4s forwards; }
-#lw-bar-track {
-  width: 180px;
-  height: 4px;
-  background: rgba(0,0,0,0.1);
-  border-radius: 99px;
-  overflow: hidden;
-}
-#lw-bar-fill {
-  height: 100%;
-  width: 0%;
-  border-radius: 99px;
-  background: linear-gradient(90deg, #2a7bd4, #2db77e);
-  animation: lw-load-bar 1.15s cubic-bezier(.4,0,.2,1) 2.5s forwards;
-}
-@keyframes lw-draw     { to { stroke-dashoffset: 0; } }
-@keyframes lw-fade     { to { opacity: 1; } }
-@keyframes lw-pop      { to { transform: scale(1); opacity: 1; } }
-@keyframes lw-slide-up { to { opacity: 1; transform: translateY(0); } }
-@keyframes lw-load-bar { to { width: 100%; } }

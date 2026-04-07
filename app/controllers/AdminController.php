@@ -93,8 +93,8 @@ class AdminController{
                 "id-neighborhood" => $_POST["slt-create-neighborhood"],
                 "address" => $_POST["txt-create-address"],
                 "id-type-business" => $_POST["slt-create-type-business"],
-                "image-front-page" => $_POST["txt-create-name-business"] . "/PORTADA001" . date("Ymd") . "001" . $extensionImageFrontPage,
-                "image-major" => $_POST["txt-create-name-business"] . "/PRINCIPAL001" . date("Ymd") . "001" . $extensionImageMajor,
+                "image-front-page" => $_POST["txt-create-name-business"] . "/PORTADA001" . date("Ymd") . "001." . $extensionImageFrontPage,
+                "image-major" => $_POST["txt-create-name-business"] . "/PRINCIPAL001" . date("Ymd") . "001." . $extensionImageMajor,
                 "status" => "ACT"
             ];
             // Registramos en la base de datos
