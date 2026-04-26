@@ -2,110 +2,241 @@
    COLORES LOCALWEY
    ===================== */
 :root {
-  --lw-primary: #1E6FD9;
-  --primary-local: #1E6FD9;
-  --primary-dark: #0d4fa0;
-  --success-local: #2DBE60;
-  /* Bootstrap override */
-  --bs-primary: #1E6FD9;
-  --bs-primary-rgb: 30, 111, 217;
+    --lw-primary: #1E6FD9;
+    --primary-local: #1E6FD9;
+    --primary-dark: #0d4fa0;
+    --success-local: #2DBE60;
+    /* Bootstrap override */
+    --bs-primary: #1E6FD9;
+    --bs-primary-rgb: 30, 111, 217;
 }
 
 .bg-primary-local {
-  background-color: #1E6FD9 !important;
+    background-color: #1E6FD9 !important;
 }
 
 .bg-primary-dark {
-  background-color: #0d4fa0 !important;
+    background-color: #0d4fa0 !important;
 }
 
 .text-primary-local {
-  color: #1E6FD9 !important;
+    color: #1E6FD9 !important;
 }
 
 .text-success-local {
-  color: #2DBE60 !important;
+    color: #2DBE60 !important;
 }
 
 .btn-success-local {
-  background-color: #2DBE60;
-  color: #fff;
-  border: none;
+    background-color: #2DBE60;
+    color: #fff;
+    border: none;
 }
 
 .btn-success-local:hover {
-  background-color: #23a352;
-  color: #fff;
+    background-color: #23a352;
+    color: #fff;
+}
+
+/* =====================
+   PANTALLA INICIO — LOGO LOCALWEY ANIMADO
+   ===================== */
+body:has(#logo-svg) {
+    background-color: #f0f2f5;
+    overflow: auto !important;
+    height: auto !important;
+}
+
+#L-base {
+    stroke-dasharray: 950;
+    stroke-dashoffset: 950;
+    animation: lw-draw 0.9s cubic-bezier(.4, 0, .2, 1) 0.2s forwards;
+}
+
+#L-fill {
+    opacity: 0;
+    animation: lw-fade 0.4s ease 0.85s forwards;
+}
+
+#L-shadow {
+    opacity: 0;
+    animation: lw-fade 0.35s ease 1.0s forwards;
+}
+
+#W-back-stroke {
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+    animation: lw-draw 0.65s cubic-bezier(.4, 0, .2, 1) 0.9s forwards;
+}
+
+#W-back-fill {
+    opacity: 0;
+    animation: lw-fade 0.35s ease 1.35s forwards;
+}
+
+#W-front-stroke {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: lw-draw 0.65s cubic-bezier(.4, 0, .2, 1) 1.2s forwards;
+}
+
+#W-front-fill {
+    opacity: 0;
+    animation: lw-fade 0.35s ease 1.65s forwards;
+}
+
+#W-cross-shadow {
+    opacity: 0;
+    animation: lw-fade 0.3s ease 1.7s forwards;
+}
+
+#arrow-head {
+    opacity: 0;
+    animation: lw-fade 0.3s ease 1.7s forwards;
+}
+
+#dot {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+    animation: lw-pop 0.42s cubic-bezier(.34, 1.56, .64, 1) 1.75s forwards;
+}
+
+#brand-name {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: lw-slide-up 0.5s cubic-bezier(.4, 0, .2, 1) 2.0s forwards;
+}
+
+#progress-wrap {
+    opacity: 0;
+    animation: lw-fade 0.3s ease 2.4s forwards;
+}
+
+#lw-bar-track {
+    width: 180px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+#lw-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #2a7bd4, #2db77e);
+    animation: lw-load-bar 1.15s cubic-bezier(.4, 0, .2, 1) 2.5s forwards;
+}
+
+@keyframes lw-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes lw-fade {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes lw-pop {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes lw-slide-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lw-load-bar {
+    to {
+        width: 100%;
+    }
 }
 
 /* =====================
    NAVBAR
    ===================== */
 .navbar {
-  height: 60px;
+    height: 60px;
 }
 
 .navbar-brand {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
 }
-
 /* =====================
    CARROUSEL
    ===================== */
 .carousel-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .carousel-inner {
-  height: 350px;
+    height: 350px;
 }
 
 .carousel-item {
-  height: 100%;
+    height: 100%;
 }
 
 .carousel-item img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
 }
 
 .hero-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 10;
 }
 
 .btn-explore {
-  background-color: var(--success-local);
-  color: #fff;
-  border: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  letter-spacing: .02em;
-  padding: .85rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1.05rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
-  transition: transform .2s, box-shadow .2s, background .2s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
+    background-color: var(--success-local);
+    color: #fff;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: .85rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+    transition: transform .2s, box-shadow .2s, background .2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
 }
 
 .btn-explore:hover {
-  background-color: #23a352;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0,0,0,.3);
+    background-color: #23a352;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .3);
 }
 
-.btn-explore:active { transform: translateY(0); }
+.btn-explore:active {
+    transform: translateY(0);
+}
+/* =====================
+   PESTAÑAS DE CONTENIDO
+   ===================== */
+.nav-link.active{
+    background: linear-gradient(135deg, #1F4FA3 0%, #4A8FD6 40%, #2FBF64 70%, #3EDC74 100%);
+}

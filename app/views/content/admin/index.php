@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>Panel de Administración | Localwey</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo PATH_BOOTSTRAP; ?>css/bootstrap.min.css" rel="stylesheet">
+    <link rel="<?php echo PATH_FONTAWESOME; ?>css/all.min.css" href="stylesheet">
 
     <style>
         body {
@@ -67,6 +68,23 @@
 
             <div class="px-4 pb-4">
                 <div class="row g-4">
+                    <!-- MUNICIPIOS -->
+                    <div class="col-md-6">
+                        <div class="action-card bg-white border rounded-4 shadow-sm p-4 h-100" data-bs-toggle="modal" data-bs-target="#modalAgregarNegocio">
+                            <a href="<?php echo PATH_BASE;?>Admin/ListMunicipality" class="text-reset text-decoration-none">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="icon-box bg-soft-blue rounded-4 d-flex align-items-center justify-content-center">
+                                        <i class="fa-solid fa-city"></i>
+                                    </div>
+
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Municipios</h6>
+                                        <p class="text-muted mb-0">Consulta y configura los municipios disponibles.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                     <!-- NEGOCIOS -->
                     <div class="col-md-6">
                         <div class="action-card bg-white border rounded-4 shadow-sm p-4 h-100" data-bs-toggle="modal" data-bs-target="#modalAgregarNegocio">
@@ -403,9 +421,7 @@
         </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="<?php echo PATH_BOOTSTRAP; ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo PATH_FONTAWESOME; ?>js/all.min.js"></script>
 </body>
-
 </html>
